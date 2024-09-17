@@ -1188,3 +1188,18 @@ section .container {
 .credits a:hover {
   color: #fff;
 }
+
+.swiper-slide{
+  width: 100% !important;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+}
+
+.video_demo{
+  width: 50vw;
+  height: 27vw;
+}
