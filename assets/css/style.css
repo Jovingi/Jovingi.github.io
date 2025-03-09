@@ -342,14 +342,13 @@ h6 {
 # Sections General
 --------------------------------------------------------------*/
 section {
-  overflow: hidden;
-  position: absolute;
+  overflow: visible; 
+  position: relative; 
   width: 100%;
-  top: 140px;
-  bottom: 100%;
-  opacity: 0;
-  transition: ease-in-out 0.4s;
-  z-index: 2;
+  min-height: 100vh; 
+  top: auto;
+  bottom: auto;
+  opacity: 1;
 }
 
 section.section-show {

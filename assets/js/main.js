@@ -40,10 +40,17 @@
    * Scrolls to an element with header offset
    */
   const scrollto = (el) => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    })
+    let element = document.querySelector(el);
+    if (element) {
+      let headerOffset = 80;
+      let elementPosition = element.getBoundingClientRect().top + window.scrollY;
+      let offsetPosition = elementPosition - headerOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
   }
 
   /**
