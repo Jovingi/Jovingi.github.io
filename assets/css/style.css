@@ -52,6 +52,17 @@ h4,
 h5,
 h6 {
   font-family: "Raleway", sans-serif;
+  
+}
+
+.container_malo h1,
+.container_malo h2 {
+  color: white;
+  text-shadow: 
+    -1px -1px 0 #000,  
+     1px -1px 0 #000,
+    -1px  1px 0 #000,
+     1px  1px 0 #000;
 }
 
 /*--------------------------------------------------------------
@@ -114,7 +125,7 @@ h6 {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 1.0);
   color: #fff;
   line-height: 1;
   margin-right: 8px;
