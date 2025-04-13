@@ -52,7 +52,7 @@
         behavior: 'smooth'
       });
     }
-  
+  }
 
   /**
    * Mobile nav toggle
