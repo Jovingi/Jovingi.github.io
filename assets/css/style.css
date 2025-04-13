@@ -957,6 +957,7 @@ section .container {
   width: 100%;
   background-color: #18d26e;
   margin-bottom: 4px;
+  padding: 8px;
 }
 
 /*
