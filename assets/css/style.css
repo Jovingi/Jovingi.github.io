@@ -201,6 +201,11 @@ h6 {
   #header.header-top h1 {
     font-size: 26px;
   }
+
+  .portfolio .portfolio-header h4 {
+    margin: 8px;
+    font-size: clamp(2vw, 4vw, 3rem);
+  }
 }
 
 /*--------------------------------------------------------------
@@ -954,9 +959,13 @@ section .container {
   margin-bottom: 4px;
 }
 
+/*
+
 .portfolio .portfolio-header h4 {
   margin: 8px;
+  font-size: clamp(2vw, 4vw, 3rem);
 }
+*/
 
 .portfolio .portfolio-logos {
   display: flex;
@@ -966,6 +975,20 @@ section .container {
   padding: 8px;
   margin: 5px;
   gap: 8px;
+}
+
+@media (max-width: 1024px) {
+  .portfolio-logos img {
+      height: auto;
+      width: 100%;
+      max-width: 64px;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      align-content: center;
+      align-items: center;
+      justify-content: space-around;
+  }
 }
 
 /*--------------------------------------------------------------

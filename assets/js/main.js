@@ -40,12 +40,15 @@
    * Scrolls to an element with header offset
    */
   const scrollto = (el) => {
+
+    /*
+
     let element = document.querySelector(el);
     if (element) {
       let headerOffset = 80;
       let elementPosition = element.getBoundingClientRect().top + window.scrollY;
-      let offsetPosition = elementPosition - headerOffset;
-
+      let offsetPosition = elementPosition;// - headerOffset;
+    */
       window.scrollTo({
         top: offsetPosition,
         behavior: 'smooth'
@@ -89,6 +92,7 @@
       }
 
       if (this.hash == '#header') {
+        
         header.classList.remove('header-top')
         sections.forEach((item) => {
           item.classList.remove('section-show')
@@ -97,7 +101,7 @@
       }
 
       if (!header.classList.contains('header-top')) {
-        header.classList.add('header-top')
+        //header.classList.add('header-top')
         setTimeout(function() {
           sections.forEach((item) => {
             item.classList.remove('section-show')
