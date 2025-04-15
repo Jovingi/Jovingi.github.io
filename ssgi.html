@@ -81,17 +81,71 @@
               <p>
                 3 months (October 2024 - December 2024).
               </p>
-              <li><strong>What I did</strong></li>
-              <p>
-                In this project I implemented a complete SSGI pipeline on top of my deferred renderer, including screen-space position reconstruction, stochastic sampling, ray marching, and both temporal and spatial denoising.<br><br>
-                I also created an ImGui debug menu to visualize all key rendering stages such as the scene with direct lighting, stochastic normals, and the blurred indirect lighting result. The implementation was inspired by <a href="https://gamehacker1999.github.io/posts/SSGI/" target="_blank">GameHacker</a>'s SSGI blog post.
-              </p>
             </ul>
             
           </div>
 
         </div>
-
+        <hr>
+        <div class="row">
+          <p>
+            In this project, I implemented a complete <strong>Screen Space Global Illumination (SSGI)</strong> pipeline using <strong>DirectX 11</strong>, integrated on top of my basic custom <strong>deferred rendering engine</strong>. 
+            The aim was to simulate real-time diffuse light bounces using only screen-space data, improving the realism of indoor scenes without resorting to baked lighting or global illumination techniques that require offline computation.
+          </p>
+        
+          <h3>Core Features & Techniques</h3>
+        
+          <p>
+            <strong>🌀 Screen-Space Position Reconstruction</strong><br><br>
+            The first step was reconstructing the world-space position of each pixel from the depth buffer. This was done using the inverse of the projection matrix, enabling accurate ray tracing in screen space from the camera’s point of view.
+          </p>
+        
+          <p>
+            <strong>🔀 Stochastic Sampling</strong><br><br>
+            I implemented <strong>stochastic sampling</strong> to randomly explore directions within the hemisphere defined by the surface normal. These samples were jittered per frame to introduce variation, and used to simulate the diffuse scattering of indirect light. 
+            Sampling was done in tangent space to maintain a consistent hemispherical distribution.
+          </p>
+        
+          <p>
+            <strong>📡 Ray Marching</strong><br><br>
+            Rays were traced in screen space using a step-based ray marching algorithm. For each direction, I marched until a depth intersection was detected—indicating a bounce point—and then sampled the indirect light contribution from that location. 
+            The results of all ray samples were accumulated per pixel.
+          </p>
+        
+          <p>
+            <strong>🧼 Spatial and Temporal Denoising</strong><br><br>
+            Due to the stochastic nature of the sampling, raw results were noisy. To resolve this, I implemented a two-stage denoising process:
+            <ul class="indented-list">
+              <li><strong>Spatial filtering</strong> using a bilateral blur to preserve edges and reduce spatial noise.</li>
+              <li><strong>Temporal accumulation</strong> using a history buffer with reprojection to blend results across frames and achieve stable indirect lighting.</li>
+            </ul>
+          </p>
+        
+          <h3>Debugging Tools</h3>
+          <p>
+            To aid in the development and tuning of the effect, I integrated an <strong>ImGui-based debug menu</strong> which allows real-time visualization of key rendering stages:
+            <ul class="indented-list">
+              <li><strong>Direct lighting pass</strong> – The scene rendered with only direct illumination.</li>
+              <li><strong>Stochastic normals</strong> – The randomly jittered normals used for sampling.</li>
+              <li><strong>Filtered indirect lighting</strong> – The final result of the SSGI pipeline after denoising.</li>
+              <li><strong>Final combined scene</strong> – The fully lit scene combining both direct and indirect lighting.</li>
+            </ul>
+            These views were critical for verifying the correctness of each stage and fine-tuning the denoising parameters and ray marching behavior.
+          </p>
+        
+          <h3>Research & Inspiration</h3>
+          <p>
+            The implementation was based on the <a href="https://gamehacker1999.github.io/posts/SSGI/" target="_blank"><strong>GameHacker SSGI blog post</strong></a>, which provided a conceptual baseline.
+          </p>
+        
+          <h3>Results</h3>
+          <p>
+            The final result is a real-time SSGI system that adds subtle and realistic indirect lighting to scenes, enhancing depth and material perception. 
+            While limited to information available in screen space, the system provides a performant alternative to more expensive GI techniques and runs smoothly in real-time applications.
+          </p>
+        </div>
+        
+        
       </div>
     </div><!-- End Portfolio Details -->
 

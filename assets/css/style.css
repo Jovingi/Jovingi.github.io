@@ -1277,3 +1277,20 @@ section .container {
   width: 50vw;
   height: 27vw;
 }
+
+@media (max-width: 768px) {
+  .video_demo{
+    width: 80vw;
+    height: 50vw;
+  }
+}
+
+.indented-list {
+  padding-left: 1.5em;
+}
+
+@media (max-width: 768px) {
+  .indented-list {
+    padding-left: 1em;
+  }
+}
