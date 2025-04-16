@@ -88,40 +88,41 @@
         </div>
         <hr>
         <div class="row">
+          <h3><strong>My role in the project</strong></h3>
+
           <p>
             In this project, I implemented a complete <strong>Screen Space Global Illumination (SSGI)</strong> pipeline using <strong>DirectX 11</strong>, integrated on top of my basic custom <strong>deferred rendering engine</strong>. 
             The aim was to simulate real-time diffuse light bounces using only screen-space data, improving the realism of indoor scenes without resorting to baked lighting or global illumination techniques that require offline computation.
           </p>
         
-          <h3>Core Features & Techniques</h3>
+          <h4>Core Features & Techniques</h4>
         
           <p>
-            <strong>🌀 Screen-Space Position Reconstruction</strong><br><br>
+            <strong>🌀 Screen-Space Position Reconstruction</strong><br>
             The first step was reconstructing the world-space position of each pixel from the depth buffer. This was done using the inverse of the projection matrix, enabling accurate ray tracing in screen space from the camera’s point of view.
           </p>
-        
+          <br><br>
           <p>
-            <strong>🔀 Stochastic Sampling</strong><br><br>
+            <strong>🔀 Stochastic Sampling</strong><br>
             I implemented <strong>stochastic sampling</strong> to randomly explore directions within the hemisphere defined by the surface normal. These samples were jittered per frame to introduce variation, and used to simulate the diffuse scattering of indirect light. 
             Sampling was done in tangent space to maintain a consistent hemispherical distribution.
           </p>
-        
+          <br><br>
           <p>
-            <strong>📡 Ray Marching</strong><br><br>
+            <strong>📡 Ray Marching</strong><br>
             Rays were traced in screen space using a step-based ray marching algorithm. For each direction, I marched until a depth intersection was detected—indicating a bounce point—and then sampled the indirect light contribution from that location. 
             The results of all ray samples were accumulated per pixel.
           </p>
-        
+          <br><br>
           <p>
-            <strong>🧼 Spatial and Temporal Denoising</strong><br><br>
+            <strong>🧼 Spatial and Temporal Denoising</strong><br>
             Due to the stochastic nature of the sampling, raw results were noisy. To resolve this, I implemented a two-stage denoising process:
             <ul class="indented-list">
               <li><strong>Spatial filtering</strong> using a bilateral blur to preserve edges and reduce spatial noise.</li>
               <li><strong>Temporal accumulation</strong> using a history buffer with reprojection to blend results across frames and achieve stable indirect lighting.</li>
             </ul>
           </p>
-        
-          <h3>Debugging Tools</h3>
+          <h4>Debugging Tools</h4>
           <p>
             To aid in the development and tuning of the effect, I integrated an <strong>ImGui-based debug menu</strong> which allows real-time visualization of key rendering stages:
             <ul class="indented-list">
@@ -133,12 +134,12 @@
             These views were critical for verifying the correctness of each stage and fine-tuning the denoising parameters and ray marching behavior.
           </p>
         
-          <h3>Research & Inspiration</h3>
+          <h4>Research & Inspiration</h4>
           <p>
             The implementation was based on the <a href="https://gamehacker1999.github.io/posts/SSGI/" target="_blank"><strong>GameHacker SSGI blog post</strong></a>, which provided a conceptual baseline.
           </p>
         
-          <h3>Results</h3>
+          <h4>Results</h4>
           <p>
             The final result is a real-time SSGI system that adds subtle and realistic indirect lighting to scenes, enhancing depth and material perception. 
             While limited to information available in screen space, the system provides a performant alternative to more expensive GI techniques and runs smoothly in real-time applications.
