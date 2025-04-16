@@ -1237,20 +1237,21 @@ section .container {
 .credits {
   position: fixed;
   right: 0;
-  left: 0;
   bottom: 0;
   padding: 15px;
   text-align: right;
   font-size: 13px;
   color: #fff;
   z-index: 999999;
+  background: rgba(0, 0, 0, 0.6);
+  margin: 10px;
 }
 
 @media (max-width: 992px) {
   .credits {
     text-align: center;
     padding: 10px;
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(0, 0, 0, 0.6);
   }
 }
 
