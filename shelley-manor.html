@@ -89,10 +89,59 @@
         </div>
         <hr>
         <div class="row">
-          <h3>What I did</h3>
-            <p>
-              In this project I mainly worked on the main character (Alex), some interactables (placeables and launchables) and the first boss (Dracula).
-            </p>
+          <h3><strong>My role in the project</strong></h3>
+        
+          <p>
+            This project was developed in Unreal Engine as part of my final year at ESAT, in collaboration with a small student studio composed of programmers, artists and designers. 
+            The game was successfully published on <strong><a href="https://store.steampowered.com/app/2999270/Shelley_Manor/" target="_blank">Steam</a></strong>, and I was primarily responsible for implementing the main character’s logic, enemy AI, animation systems, and interactive objects in the environment.
+          </p>
+        
+          <h4>Core Features & Techniques</h4>
+        
+          <p>
+            <strong>🧠 State-driven main character logic</strong><br>
+            I built a modular <strong>state machine system</strong> for the main character (Alex), allowing his behavior to dynamically adapt based on his current state — such as locomotion, aiming, dragging, hiding, or interacting.
+            This system controlled changes in movement speed, collision settings, visibility, and input permissions. Each state class (e.g. <code>UBMLocomotionPlayerState</code>, <code>UBMAimingPlayerState</code>) handled its own logic and transitions in isolation.
+          </p>
+        
+          <p>
+            <strong>👁️ Context-aware interaction system</strong><br>
+            I implemented a real-time raycasting system tied to the player’s state and animation. It detects nearby interactables, updates UI prompts, and handles input blocking or enabling depending on player conditions (e.g. crouching, dragging, aiming).
+          </p>
+        
+          <p>
+            <strong>🧛 Enemy architecture and Dracula boss AI</strong><br>
+            I designed the <strong>base enemy class</strong> used by all enemies, including behavior tree integration, perception logic (sight/hearing), and state control.
+            I then focused on scripting the first boss: <strong>Dracula</strong>. His AI features two distinct phases:
+            <ul class="indented-list">
+              <li>🪦 Phase 1: Sleeps in his coffin and wakes up in time or when the player makes noise. If he sees the player for too long, he instantly kills them.</li>
+              <li>🖼️ Phase 2: Teleports around the room to protect three vulnerable paintings. Loud noises force him to teleport near the player.</li>
+            </ul>
+            His AI leveraged Unreal’s perception system and custom teleport/vision behavior to create tension-based gameplay.
+          </p>
+        
+          <p>
+            <strong>🎞️ Animation integration with AnimInstance</strong><br>
+            I integrated all character animation logic through a custom <code>UAlexAnimInstance</code>, controlling state transitions like grabbing, dragging, dying, and jumping. 
+            The state machine system communicated directly with the animation blueprint to keep visuals and logic in sync.
+          </p>
+        
+          <p>
+            <strong>🧩 Interactive gameplay objects</strong><br>
+            I also created several interactable elements in the world, including:
+            <ul class="indented-list">
+              <li>Breakable bottles that players can throw to create noise or destroy objects.</li>
+              <li>Busts that must be placed in specific slots to solve puzzles.</li>
+              <li>Torch-based mechanics for illuminating and triggering fire-based interactions.</li>
+            </ul>
+            All these systems were fully integrated with the character's interaction state and updated in real time.
+          </p>
+        
+          <h4>Key Outcomes</h4>
+          <p>
+            This was one of the most complete and professional projects I’ve worked on, featuring real team collaboration with artists and designers.
+            I had the opportunity to own major systems from scratch, and ship a game to Steam with a team, preparing me for production-ready, multi-disciplinary development.
+          </p>
         </div>
 
       </div>
